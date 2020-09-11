@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand text-success" href="#">GAME STORE</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,7 +38,7 @@
             </div>
 
         </nav>
-        <div class="row">
+        <div class="row mt-2">
             <div class="col-md-3">
                 <div class="bg-dark text-white p-3">
                     Category
@@ -46,15 +46,41 @@
                 <div class="card border-dark mt-2">
                     <div class="card-header">Filter</div>
                     <div class="card-body text-dark">
-                    <p class="card-text">Brand</p>
+                        <p class="card-text">Brand</p>
                         <p class="card-text">Price</p>
                     </div>
                 </div>
-                <div class="col-md-9">
-                    
-                </div>
-            </div>
 
+            </div>
+            <div class="col-md-9">
+                <div class="row mr-0">
+                <div class="col-md 4 card border-dark mr-1">
+                    <div class="card-header"><img class="image" src="sample.png" alt="anythings"></div>
+                    <div class="card-body text-dark mx-auto">
+                        <p class="card-text">Name</p>
+                        <p class="card-text">Price</p>
+                        <button type="button" class="btn btn-secondary">Add to cart</button>
+                    </div>
+                </div>
+                <div class="col-md 4 card border-dark mr-1">
+                    <div class="card-header"><img class="image" src="sample.png" alt="anythings"></div>
+                    <div class="card-body text-dark mx-auto">
+                        <p class="card-text">Name</p>
+                        <p class="card-text">Price</p>
+                        <button type="button" class="btn btn-secondary">Add to cart</button>
+                    </div>
+                </div>
+                <div class="col-md 4 card border-dark">
+                    <div class="card-header"><img class="image" src="sample.png" alt="anythings"></div>
+                    <div class="card-body text-dark mx-auto">
+                        <p class="card-text">Name</p>
+                        <p class="card-text">Price</p>
+                        <button type="button" class="btn btn-secondary">Add to cart</button>
+                    </div>
+                </div>
+                </div>
+                
+            </div>
         </div>
 
 
