@@ -10,7 +10,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/cd2663b29d.js" crossorigin="anonymous"></script>
-    <!-- <link rel="stylesheet" href="/css/style.css"> -->
+
 </head>
 
 <body class="bg-secondary">
@@ -28,10 +28,10 @@
                 </div>
                 <div class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link active text-primary" href="#">Sign in</a>
+                        <a class="nav-link active text-primary" href="/View/Login.php">Sign in</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active text-primary" href="#">Sign up</a>
+                        <a class="nav-link active text-primary" href="/View/Login.php">Sign up</a>
                     </li>
                 </div>
 

@@ -2,10 +2,10 @@
 -- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: db
--- Thời gian đã tạo: Th9 11, 2020 lúc 06:03 AM
--- Phiên bản máy phục vụ: 8.0.21
--- Phiên bản PHP: 7.4.9
+-- Host: db
+-- Generation Time: Sep 14, 2020 at 08:48 AM
+-- Server version: 5.7.31
+-- PHP Version: 7.4.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `game`
+-- Database: `game`
 --
 CREATE DATABASE IF NOT EXISTS `game` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 USE `game`;
@@ -26,23 +26,50 @@ USE `game`;
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `Games`
+-- Table structure for table `CardDetails`
+--
+
+CREATE TABLE IF NOT EXISTS `CardDetails` (
+  `CardDetailID` int(11) NOT NULL AUTO_INCREMENT,
+  `ProductID` int(11) NOT NULL,
+  `ProductQuantity` int(11) NOT NULL,
+  `ProductPrice` int(11) NOT NULL,
+  `CardID` int(11) NOT NULL,
+  PRIMARY KEY (`CardDetailID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Carts`
+--
+
+CREATE TABLE IF NOT EXISTS `Carts` (
+  `CartID` int(11) NOT NULL AUTO_INCREMENT,
+  `CartUserID` int(11) NOT NULL,
+  PRIMARY KEY (`CartID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Games`
 --
 
 CREATE TABLE IF NOT EXISTS `Games` (
-  `GameID` int NOT NULL AUTO_INCREMENT,
-  `GameName` varchar(100) NOT NULL,
-  `GamePrice` int NOT NULL,
-  `GameProducer` varchar(100) NOT NULL,
-  `GameCatagory` varchar(100) NOT NULL,
-  `GameQuantity` int NOT NULL,
-  `GameDescription` varchar(10000) DEFAULT NULL,
-  `GameImage` varchar(1000) NOT NULL,
+  `GameID` int(11) NOT NULL AUTO_INCREMENT,
+  `GameName` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `GamePrice` int(11) NOT NULL,
+  `GameProducer` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `GameCatagory` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `GameQuantity` int(11) NOT NULL,
+  `GameDescription` varchar(10000) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `GameImage` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`GameID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `Games`
+-- Dumping data for table `Games`
 --
 
 INSERT INTO `Games` (`GameID`, `GameName`, `GamePrice`, `GameProducer`, `GameCatagory`, `GameQuantity`, `GameDescription`, `GameImage`) VALUES
@@ -52,6 +79,33 @@ INSERT INTO `Games` (`GameID`, `GameName`, `GamePrice`, `GameProducer`, `GameCat
 (4, 'One Piece Pirate Warriors 4 cho PS4 - EU', 790000, 'Omega Force', 'Action, Beat-\'Em-Up, 3D', 100, 'One Piece: Pirate Warriors 4 là video game phiêu lưu hành động được phát triển bởi Omega Force và được Bandai Namco Entertainment phát hành cho PC, PlayStation 4, Xbox One và Nintendo Switch. Đây là phần thứ tư trong loạt trò chơi điện tử Pirate Warriors, dựa trên nhượng quyền thương mại của bộ truyện tranh nổi tiếng One Piece.\r\nGame có lối chơi kiểu \"một mình cân cả thế giới\" giống với dòng Dynasty Warrior (hay còn biết đến bằng cái tên Tam Quốc ở Việt Nam). Lối chơi của nó cũng không khác nhiều so với người anh em của mình khi thường đưa người chơi vào vai các nhân vật của thế giới One Piece, tả xung hữu đột giữa hàng đàn kẻ địch bằng hệ thống chiêu thức đẹp mắt.', 'https://product.hstatic.net/1000154920/product/one_piece_pirate_warriors_4_2743985f7c5d4c4e86e8a03bff4dc6aa_master.png'),
 (5, 'My Hero One\'s Justice 2 cho PS4 - EU', 1350000, 'Bandai Namco Games', 'Action, Fighting, 3D', 100, 'Cuộc chiến vì công lý vẫn tiếp diễn, nhưng lần này, cuộc chiến trở nên lớn hơn, ác liệt hơn trong My Hero One’s Justice 2. Dựa trên bộ anime đình đám, tất cả các nhân vật được yêu thích sẽ trở lại trong đấu trường 3D này, chiến đấu với các anh hùng và nhân vật phản diện cuối cùng.\r\nĐón xem sau khi kết thúc My Hero One’s Justice và xem điều gì xảy ra với Deku và lớp học tại UA. Dàn nhân vật trong My Hero One’s Justice đã trở lại và giờ đây họ đã tham gia cùng với các nhân vật mới được thêm vào trong bộ truyện. Với 40 nhân vật có thể lựa chọn, xây dựng team trong mơ với các nhân vật chín hoặc nhân vật phản diện yêu thích. Chiến đấu để xây dựng \"Plus Ultra\" và sử dụng các chiêu thức combo đặc biệt!\r\nCác tính năng chính:\r\n\r\nKhám phá các chiêu thức combo đặc biệt với tất cả các nhân vật yêu thích.\r\nXây dựng đội ngũ trong mơ với 40 nhân vật có thể lựa chọn.\r\nDựa trên bộ anime đình đám có các nhân vật yêu thích như Deku, All Might, Shigaraki, và nhiều nhân vật khác.\r\nThưởng thức những cảnh tượng đáng nhớ từ anime.', 'https://product.hstatic.net/1000154920/product/my_hero_one_s_justice_2_0f6b1200fade4d659e00a9b89e131c25_master.png'),
 (6, 'The Legend Of Heroes Trails Of Cold Steel III cho PS4 - EU', 1090000, 'Falcom', 'Role-Playing, Japanese-Style', 100, 'Là sản phẩm “hậu duệ” trực tiếp của hai tựa game Trails of Cold Steel trước, The Legend of Heroes: Trails of Cold Steel III trở lại với nhân vật chính Rean Schwarzer, nay đã là một giảng viên quân sự, cùng những người bạn của anh từ các phần game trước.\r\nLấy bối cảnh 1 năm rưỡi sau Trails of Cold Steel II, phần III sẽ đi sâu vào những bí ẩn liên quan tới việc Rean chào đời, cũng như khám phá những điều mà các nhân vật khác đã làm trong quãng thời gian 1 năm rưỡi đó.', 'https://product.hstatic.net/1000154920/product/the_legend_of_heroes_trails_of_cold_steel_iii_c3975ebfef3f40189f6d72eef6ce4c24_master.png');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Users`
+--
+
+CREATE TABLE IF NOT EXISTS `Users` (
+  `UserID` int(11) NOT NULL AUTO_INCREMENT,
+  `UserName` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `UserEmail` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `UserPassword` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `UserGender` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `UserBirth` datetime DEFAULT NULL,
+  `UserImage` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `UserPhone` text COLLATE utf8_unicode_ci,
+  `UserRole` int(11) NOT NULL,
+  PRIMARY KEY (`UserID`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `Users`
+--
+
+INSERT INTO `Users` (`UserID`, `UserName`, `UserEmail`, `UserPassword`, `UserGender`, `UserBirth`, `UserImage`, `UserPhone`, `UserRole`) VALUES
+(1, 'Chong duc anh', 'chongducanh@gmail.com', 'abcdef', NULL, NULL, NULL, NULL, 2),
+(2, 'admin', 'admin@gmail.com', 'pw', NULL, NULL, NULL, NULL, 1);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

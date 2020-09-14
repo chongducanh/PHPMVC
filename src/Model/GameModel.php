@@ -7,7 +7,13 @@
         }
         public function GetGameID($id){
             $query = "SELECT * FROM Games WHERE GameID = '$id'";
-            return $this->ExecuteQuery($query);
+            $result = $this->ExecuteQuery($query);
+            if (mysqli_num_rows($result)== 0){
+                header('Location: /PNF.php');
+            }
+            else{
+                return $result;
+            }
         }
     }
 ?>
