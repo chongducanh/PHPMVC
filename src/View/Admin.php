@@ -1,7 +1,8 @@
-<?php session_start(); 
-  if (!isset($_SESSION['id']) || $_SESSION['userrole'] != 1){
-    header('Location: /index.php?url=Game');
-  }
+<?php
+session_start();
+if (!isset($_SESSION['id']) || $_SESSION['userrole'] != 1) {
+  header('Location: /index.php?url=Game');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +15,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Dashboard</title>
+  <title>GameCenter - Dashboard</title>
 
   <!-- Custom fonts for this template-->
   <!-- <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"> -->
@@ -129,39 +130,38 @@
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                   <h6 class="m-0 font-weight-bold text-primary">Insert Game</h6>
-
+                  <button class="btn btn-success text-right" data-toggle="modal" data-target="#insertmodel">Insert</button>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
                   <div class="chart-area">
                     <table class="table">
                       <thead>
-                        <tr>  
-                          <th scope="col">#</th>
-                          <th scope="col">First</th>
-                          <th scope="col">Last</th>
-                          <th scope="col">Handle</th>
+                        <tr>
+                          <th scope="col">Id</th>
+                          <th scope="col">Name</th>
+                          <th scope="col">Price</th>
+                          <th scope="col">Producer</th>
+                          <th scope="col">Quantity</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <th scope="row">1</th>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">2</th>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td>Larry</td>
-                          <td>the Bird</td>
-                          <td>@twitter</td>
-                        </tr>
+                        <?php
+                        while ($row = mysqli_fetch_array($data['gamelist'])) {
+                        ?>
+                          <tr>
+                            <th scope="row"><?php echo $row['GameID'] ?></th>
+                            <td><?php echo $row['GameName'] ?></td>
+                            <td><?php echo $row['GamePrice'] ?></td>
+                            <td><?php echo $row['GameProducer'] ?></td>
+                            <td><?php echo $row['GameQuantity'] ?></td>
+                          </tr>
+
+                        <?php
+                        }
+                        ?>
+
+
                       </tbody>
                     </table>
                   </div>
@@ -218,7 +218,61 @@
       </div>
     </div>
   </div>
+  <!-- Insert Model -->
+  <div class="modal fade" id="insertmodel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Insert Game </h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
 
+          <form action="/index.php?url=Admin/InsertGame" method="POST">
+            <div class="form-group">
+              <label for="Gamename">Game name</label>
+              <input type="text" class="form-control" name="gamename" placeholder="Enter Game's name">
+            </div>
+            <div class="form-group">
+              <label for="gameprice">Game price</label>
+              <input type="number" class="form-control" name="gameprice" placeholder="Enter Game's price">
+            </div>
+            <div class="form-group">
+              <label for="gameproducer">Game producer</label>
+              <input type="text" class="form-control" name="gameproducer" placeholder="Enter Game's producer">
+            </div>
+            <div class="form-group">
+              <label for="gamecatagory">Game catagory</label>
+              <input type="text" class="form-control" name="gamecatagory" placeholder="Enter Game's catagory">
+            </div>
+            <div class="form-group">
+              <label for="gamequantity">Game quantity</label>
+              <input type="number" class="form-control" name="gamequantity" placeholder="Enter Game's quantity">
+            </div>
+            <div class="form-group">
+              <label for="gamedescription">Game description</label>
+              <input type="text" class="form-control" name="gamedescription" placeholder="Enter Game's description">
+            </div>
+            <div class="form-group">
+              <label for="gameimage">Game image</label>
+              <input type="text" class="form-control" name="gameimage" placeholder="Enter Game's image">
+            </div>
+            <div class="float-right">
+              <button type="submit" name="insertsubmit" class="btn btn-success">Submit</button>
+              <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            </div>
+
+          </form>
+        </div>
+        <!-- <div class="modal-footer">
+          
+          
+        </div> -->
+      </div>
+    </div>
+  </div>
   <!-- Bootstrap core JavaScript-->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

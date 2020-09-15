@@ -15,5 +15,11 @@
                 return $result;
             }
         }
+        public function Insert($gname, $gprice, $gproducer, $gcatagory, $gquantity, $gdescription, $gimage){
+            // echo $gname.$gprice.$gproducer.$gcatagory.$gquantity.$gdescription.$gimage;
+            $query = "INSERT INTO Games (GameName, GamePrice, GameProducer, GameCatagory, GameQuantity, GameDescription, GameImage) VALUES ('$gname','$gprice','$gproducer','$gcatagory','$gquantity','$gdescription','$gimage')";
+            return $this->ExecuteQuery($query);
+            // print("asda" .$result);
+        }
     }
 ?>

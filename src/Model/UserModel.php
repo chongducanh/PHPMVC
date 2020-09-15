@@ -9,8 +9,6 @@ class UserModel extends DBConnect{
             $_SESSION['username'] = $userCur['UserName'];
             $_SESSION['usermail'] = $userCur['UserEmail'];
             $_SESSION['userrole'] = $userCur['UserRole'];
-            // echo "Asdladkjaldksjaldjaksadksaalsdjajas";
-            // echo $_SESSION['username'];
         }
         else{
             $_SESSION['msgLogin'] = "Error";

@@ -26,10 +26,11 @@
                     <!-- <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a> -->
 
                 </div>
-                <?php
-                if (isset($_SESSION['id'])) {
-                ?>
-                    <div class="navbar-nav ml-auto">
+                <div class="navbar-nav ml-auto">
+                    <?php
+                    if (isset($_SESSION['id'])) {
+                    ?>
+
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="mr-2 d-none d-lg-inline text-gray-600 small">Welcome <?php echo $_SESSION['username'] ?></span>
                             <img style="width: 20px; height:20px;" class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
@@ -44,28 +45,41 @@
                                 <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Cart
                             </a>
+                            <?php
+                            if ($_SESSION['userrole'] == 1) {
+                            ?>
+                                <a class="dropdown-item" href="index.php?url=Admin/OverView">
+                                    <i class="fas fa-users-cog  fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Admin Page
+                                </a>
+                            <?php
+                            }
+                            ?>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Logout
                             </a>
                         </div>
-                    </div>
-                <?php
-                } else {
-                ?>
-                    <div class="navbar-nav ml-auto">
+
+                    <?php
+                    } else {
+                    ?>
+
                         <li class="nav-item">
                             <a class="nav-link active text-primary" href="/View/Login.php"><i class="fas fa-sign-in-alt"></i> Sign in</a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link active text-primary" href="/View/Login.php"><i class="fas fa-user-plus"></i> Sign up</a>
-                        </li>
-                    </div>
-                <?php
-                }
-                ?>
+                        </li> -->
 
+                    <?php
+                    }
+                    ?>
+                    <li class="nav-item">
+                            <a class="nav-link active text-primary" href="#"> <i class="fa fa-cart-arrow-down" aria-hidden="true"></i> Cart</a>
+                        </li>
+                </div>
 
             </div>
 
@@ -94,7 +108,7 @@
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                
+
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                     <a class="btn btn-primary" href="/index.php?url=User/LogOut/">Logout</a>

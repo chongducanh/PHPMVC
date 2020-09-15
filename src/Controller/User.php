@@ -6,15 +6,16 @@ class User extends Controller
     {
         $error = array();
         $user = $this->model("UserModel");
-        $game = $this->model("GameModel");
-        $userpassword = isset($_POST['username']) ? $_POST['username'] : '';
+        $useremail = isset($_POST['username']) ? $_POST['username'] : '';
         $userpassword = isset($_POST['password']) ? $_POST['password'] : '';
         if (isset($_POST['submit'])) {
             if (empty($useremail)) {
                 $error['username'] = "Bạn chưa nhập username";
+                
             }
             if (empty($userpassword)) {
                 $error['password'] = "Bạn chưa nhập password";
+               
             }
             if (!empty($userpassword) && !empty($userpassword)) {
                 $user->Login($_POST['username'], $_POST['password']);
@@ -23,10 +24,7 @@ class User extends Controller
                 } elseif ($_SESSION['userrole'] == 2) {
                     header('Location: /index.php?url=Game');
                 } else {
-                    $data = [
-                        'gamelist' => $game->GetGameList()
-                    ];
-                    $this->view("Admin", $data);
+                    header('Location: /index.php?url=Admin/OverView');
                 }
             }
         }
@@ -42,6 +40,7 @@ class User extends Controller
         unset($_SESSION['username']);
         unset($_SESSION['usermail']);
         unset($_SESSION['userrole']);
+        unset($_SESSION['msgLogin']);
         session_destroy();
         header('Location: /index.php?url=Game');
     }

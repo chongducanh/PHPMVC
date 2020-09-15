@@ -19,6 +19,8 @@ class DbConnect {
     
     public function ExecuteQuery($query)
     {
+        // $query = "INSERT INTO Games (GameName, GamePrice, GameProducer, GameCatagory, GameQuantity, GameDescription, GameImage) VALUES ('1','12121asd','abc','12','12','ad','12')";
+        // print_r(mysqli_query($this->conn, $query));
         return mysqli_query($this->conn, $query);
     }
     

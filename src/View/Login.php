@@ -22,7 +22,7 @@
                         <form id="login-form" class="form" action="/index.php?url=User/Login/" method="post">
                             <h3 class="text-center text-info">Login</h3>
                             <div class="form-group">
-                                <label for="username" class="text-info">Username:</label><br>
+                                <label for="username" class="text-info">UserEmail:</label><br>
                                 <input type="text" name="username" id="username" class="form-control">
                                 <p class="text-danger"><?php echo isset($error['username']) ? $error['username'] : ''; ?></p>
                             </div>
@@ -32,13 +32,13 @@
                                 <p class="text-danger"><?php echo isset($error['password']) ? $error['password'] : ''; ?></p>
                             </div>
                             <div class="form-group">
-                                <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
+                                <!-- <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br> -->
                                 <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
                                 <p class="text-danger"><?php echo isset($error['login']) ? $error['login'] : ''; ?></p>
                             </div>
-                            <div id="register-link" class="text-right">
+                            <!-- <div id="register-link" class="text-right">
                                 <a href="#" class="text-info">Register here</a>
-                            </div>
+                            </div> -->
                         </form>
                     </div>
                 </div>
