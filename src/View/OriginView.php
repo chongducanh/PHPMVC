@@ -23,17 +23,49 @@
 
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                    <!-- <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a> -->
 
                 </div>
-                <div class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active text-primary" href="/View/Login.php">Sign in</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active text-primary" href="/View/Login.php">Sign up</a>
-                    </li>
-                </div>
+                <?php
+                if (isset($_SESSION['id'])) {
+                ?>
+                    <div class="navbar-nav ml-auto">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Welcome <?php echo $_SESSION['username'] ?></span>
+                            <img style="width: 20px; height:20px;" class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Profile
+                            </a>
+
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Cart
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Logout
+                            </a>
+                        </div>
+                    </div>
+                <?php
+                } else {
+                ?>
+                    <div class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active text-primary" href="/View/Login.php"><i class="fas fa-sign-in-alt"></i> Sign in</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active text-primary" href="/View/Login.php"><i class="fas fa-user-plus"></i> Sign up</a>
+                        </li>
+                    </div>
+                <?php
+                }
+                ?>
+
 
             </div>
 
@@ -53,7 +85,23 @@
         <div class="card-footer bg-white mt-2 text-right">&copy; Copyright 2020 AnhCD</div>
         <!-- <footer class="float-right bg-white mt-3">&copy; Copyright 2020 AnhCD</footer> -->
     </div>
-
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="/index.php?url=User/LogOut/">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

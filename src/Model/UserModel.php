@@ -9,12 +9,8 @@ class UserModel extends DBConnect{
             $_SESSION['username'] = $userCur['UserName'];
             $_SESSION['usermail'] = $userCur['UserEmail'];
             $_SESSION['userrole'] = $userCur['UserRole'];
-            if($_SESSION['userrole'] == 2){
-                header('Location: /index.php?url=Game');
-            }
-            else {
-                header('Location: /View/Admin.php');
-            }
+            // echo "Asdladkjaldksjaldjaksadksaalsdjajas";
+            // echo $_SESSION['username'];
         }
         else{
             $_SESSION['msgLogin'] = "Error";
