@@ -4,6 +4,9 @@ class User extends Controller
 
     public function Login()
     {
+        unset($_SESSION['msgLogin']);
+        unset($error['username']);
+        unset($error['password']);
         $error = array();
         $user = $this->model("UserModel");
         $useremail = isset($_POST['username']) ? $_POST['username'] : '';
@@ -21,9 +24,11 @@ class User extends Controller
                 $user->Login($_POST['username'], $_POST['password']);
                 if (isset($_SESSION['msgLogin'])) {
                     $error['login'] = "Sai tài khoản hoặc mật khẩu";
-                } elseif ($_SESSION['userrole'] == 2) {
+                } 
+                elseif ($_SESSION['userrole'] == 2) {
                     header('Location: /index.php?url=Game');
-                } else {
+                } 
+                else {
                     header('Location: /index.php?url=Admin/OverView');
                 }
             }

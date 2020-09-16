@@ -12,7 +12,7 @@ while ($row = mysqli_fetch_array($data['gamedetail'])) {
 
         <div class="col-md-7">
             <h1><?php echo $row['GameName'] ?></h1>
-            <h2> Price: <?php echo $row['GamePrice'] ?>đ</h2>
+            <h2> Price: <?php echo number_format($row['GamePrice'] , 0, ',', '.'); ?>đ</h2>
             <h3> Quantity: <?php echo $row['GameQuantity'] ?></h3>
             <h4> Producer: <?php echo $row['GameProducer'] ?></h4>
             <h4> Category: <?php echo $row['GameCatagory'] ?></h4>

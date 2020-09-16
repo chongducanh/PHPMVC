@@ -129,12 +129,12 @@ if (!isset($_SESSION['id']) || $_SESSION['userrole'] != 1) {
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Insert Game</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Game list:</h6>
                   <button class="btn btn-success text-right" data-toggle="modal" data-target="#insertmodel">Insert</button>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-                  <div class="chart-area">
+                  <div>
                     <table class="table">
                       <thead>
                         <tr>
@@ -160,8 +160,6 @@ if (!isset($_SESSION['id']) || $_SESSION['userrole'] != 1) {
                         <?php
                         }
                         ?>
-
-
                       </tbody>
                     </table>
                   </div>

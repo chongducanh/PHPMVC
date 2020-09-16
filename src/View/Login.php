@@ -23,12 +23,12 @@
                             <h3 class="text-center text-info">Login</h3>
                             <div class="form-group">
                                 <label for="username" class="text-info">UserEmail:</label><br>
-                                <input type="text" name="username" id="username" class="form-control">
+                                <input type="text" name="username" id="username" class="form-control" require>
                                 <p class="text-danger"><?php echo isset($error['username']) ? $error['username'] : ''; ?></p>
                             </div>
                             <div class="form-group">
                                 <label for="password" class="text-info">Password:</label><br>
-                                <input type="text" name="password" id="password" class="form-control">
+                                <input type="text" name="password" id="password" class="form-control" require>
                                 <p class="text-danger"><?php echo isset($error['password']) ? $error['password'] : ''; ?></p>
                             </div>
                             <div class="form-group">

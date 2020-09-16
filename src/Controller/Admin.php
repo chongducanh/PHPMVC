@@ -19,7 +19,7 @@ class Admin extends Controller{
             $game = $this->model("GameModel");
             // echo $gamename.$gamenprice.$gameproducer.$gamecatagory.$gamequantity.$gamedescription.$gameimage;
             $game->Insert($gamename,$gamenprice,$gameproducer,$gamecatagory,$gamequantity,$gamedescription,$gameimage);
-
+            header('Location: /index.php?url=Admin/OverView');  
         }
 
     }

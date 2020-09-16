@@ -26,9 +26,12 @@
                         <a href=<?php echo "index.php?url=Game/GameDetail/" . $row['GameID'] ?>>
                             <p class="card-text"><?php echo $row['GameName'] ?></p>
                         </a>
-                        <p class="card-text"><?php echo $row['GamePrice'] ?></p>
+                        <p class="card-text"><?php echo number_format($row['GamePrice'], 0, ',', '.'); ?> đ</p>
                         <div class="text-center">
-                            <button type="button" class="btn btn-success">Add to cart</button>
+                            <a href=<?php echo "index.php?url=Cart/AddToCart/" . $row['GameID'] ?>>
+                                <button type="button" class="btn btn-success">Add to cart</button>
+                            </a>
+
                         </div>
 
                     </div>

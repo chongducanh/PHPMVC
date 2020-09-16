@@ -77,7 +77,7 @@
                     }
                     ?>
                     <li class="nav-item">
-                            <a class="nav-link active text-primary" href="#"> <i class="fa fa-cart-arrow-down" aria-hidden="true"></i> Cart</a>
+                            <a class="nav-link active text-primary" href="/View/Cart.php"> <i class="fa fa-cart-arrow-down" aria-hidden="true"></i> Cart</a>
                         </li>
                 </div>
 
