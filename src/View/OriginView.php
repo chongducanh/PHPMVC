@@ -96,8 +96,7 @@
         </div>
 
 
-        <div class="card-footer bg-white mt-2 text-right">&copy; Copyright 2020 AnhCD</div>
-        <!-- <footer class="float-right bg-white mt-3">&copy; Copyright 2020 AnhCD</footer> -->
+        <div class="card-footer bg-white mt-2 text-right">&copy; Copyright 2020</div>
     </div>
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">

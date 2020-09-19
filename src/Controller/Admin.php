@@ -3,7 +3,7 @@ class Admin extends Controller{
     public function OverView(){
         $game = $this->model("GameModel");
         $data = [
-            'gamelist' => $game->GetGameList()
+            'gamelist' => $game->GetAllGame()
         ];
         $this->view("Admin", $data);
     }
