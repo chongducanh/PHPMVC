@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Generation Time: Sep 19, 2020 at 04:39 PM
+-- Generation Time: Sep 19, 2020 at 06:40 PM
 -- Server version: 5.7.31
 -- PHP Version: 7.4.9
 
@@ -20,6 +20,37 @@ SET time_zone = "+00:00";
 --
 -- Database: `game`
 --
+CREATE DATABASE IF NOT EXISTS `game` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+USE `game`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `CardDetails`
+--
+
+DROP TABLE IF EXISTS `CardDetails`;
+CREATE TABLE IF NOT EXISTS `CardDetails` (
+  `CardDetailID` int(11) NOT NULL AUTO_INCREMENT,
+  `ProductID` int(11) NOT NULL,
+  `ProductQuantity` int(11) NOT NULL,
+  `ProductPrice` int(11) NOT NULL,
+  `CardID` int(11) NOT NULL,
+  PRIMARY KEY (`CardDetailID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Carts`
+--
+
+DROP TABLE IF EXISTS `Carts`;
+CREATE TABLE IF NOT EXISTS `Carts` (
+  `CartID` int(11) NOT NULL AUTO_INCREMENT,
+  `CartUserID` int(11) NOT NULL,
+  PRIMARY KEY (`CartID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -27,6 +58,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `Games`
 --
 
+DROP TABLE IF EXISTS `Games`;
 CREATE TABLE IF NOT EXISTS `Games` (
   `GameID` int(11) NOT NULL AUTO_INCREMENT,
   `GameName` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -37,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `Games` (
   `GameDescription` varchar(10000) COLLATE utf8_unicode_ci DEFAULT NULL,
   `GameImage` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`GameID`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `Games`
@@ -51,6 +83,34 @@ INSERT INTO `Games` (`GameID`, `GameName`, `GamePrice`, `GameProducer`, `GameCat
 (5, 'My Hero One\'s Justice 2 cho PS4 - EU', 1350000, 'Bandai Namco Games', 'Action, Fighting, 3D', 100, 'Cuộc chiến vì công lý vẫn tiếp diễn, nhưng lần này, cuộc chiến trở nên lớn hơn, ác liệt hơn trong My Hero One’s Justice 2. Dựa trên bộ anime đình đám, tất cả các nhân vật được yêu thích sẽ trở lại trong đấu trường 3D này, chiến đấu với các anh hùng và nhân vật phản diện cuối cùng.\r\nĐón xem sau khi kết thúc My Hero One’s Justice và xem điều gì xảy ra với Deku và lớp học tại UA. Dàn nhân vật trong My Hero One’s Justice đã trở lại và giờ đây họ đã tham gia cùng với các nhân vật mới được thêm vào trong bộ truyện. Với 40 nhân vật có thể lựa chọn, xây dựng team trong mơ với các nhân vật chín hoặc nhân vật phản diện yêu thích. Chiến đấu để xây dựng \"Plus Ultra\" và sử dụng các chiêu thức combo đặc biệt!\r\nCác tính năng chính:\r\n\r\nKhám phá các chiêu thức combo đặc biệt với tất cả các nhân vật yêu thích.\r\nXây dựng đội ngũ trong mơ với 40 nhân vật có thể lựa chọn.\r\nDựa trên bộ anime đình đám có các nhân vật yêu thích như Deku, All Might, Shigaraki, và nhiều nhân vật khác.\r\nThưởng thức những cảnh tượng đáng nhớ từ anime.', 'https://product.hstatic.net/1000154920/product/my_hero_one_s_justice_2_0f6b1200fade4d659e00a9b89e131c25_master.png'),
 (6, 'The Legend Of Heroes Trails Of Cold Steel III cho PS4 - EU', 1090000, 'Falcom', 'Role-Playing, Japanese-Style', 100, 'Là sản phẩm “hậu duệ” trực tiếp của hai tựa game Trails of Cold Steel trước, The Legend of Heroes: Trails of Cold Steel III trở lại với nhân vật chính Rean Schwarzer, nay đã là một giảng viên quân sự, cùng những người bạn của anh từ các phần game trước.\r\nLấy bối cảnh 1 năm rưỡi sau Trails of Cold Steel II, phần III sẽ đi sâu vào những bí ẩn liên quan tới việc Rean chào đời, cũng như khám phá những điều mà các nhân vật khác đã làm trong quãng thời gian 1 năm rưỡi đó.', 'https://product.hstatic.net/1000154920/product/the_legend_of_heroes_trails_of_cold_steel_iii_c3975ebfef3f40189f6d72eef6ce4c24_master.png'),
 (7, 'Final Fantasy VII Remake cho PS4 - Asia', 1390000, 'Square Enix', 'Japanese-Style, Role-Playing, Action RPG', 0, 'Final Fantasy từ lâu đã là dòng game sở hữu chất lượng đồ họa đỉnh cao. Mỗi phần mới đều tìm cách đẩy giới hạn này ra xa hơn, mang lại những trường đoạn đẹp mắt, mãn nhãn cho người chơi. Final Fantasy VII Remake không nằm ngoài điều đó. Tận dụng công nghệ hiện đại, trò chơi được khoác lên mình lớp áo mới lung linh.\r\nNếu như ở bản gốc, Final Fantasy VII sử dụng kiểu chọn lệnh (command) theo lượt trong các trận đấu, thì ở Final Fantasy VII Remake, yếu tố hiện đại đã được thêm vào. Điều này là cần thiết để giúp game bắt kịp với các xu thế hiện đại, giúp người chơi trải nghiệm tốt hơn, thoải mái hơn, tránh sự nhàm chán do các tiêu chuẩn cũ đã lỗi thời. Hệ thống gameplay chiến đấu mới ở Final Fantasy VII Remake là sự pha trộn giữa nhập vai truyền thống và chất hành động mới mẻ.\r\nVới tài lực và nhân lực đồ sộ của Square Enix hậu thuẫn, nhưng Final Fantasy VII Remake vẫn phải bị chia làm từng part riêng để phát hành vì lượng nội dung quá lớn. Đặc biệt là khi mọi thứ xưa kia đều được làm lại ở dạng 3D. Vì lẽ đó đây chỉ mới là phần đầu tiên trong toàn bộ cốt truyện, nhưng bạn có thể yên tâm là độ dài game không thua kém bất kỳ game nhập vai lớn nào.', 'https://product.hstatic.net/1000154920/product/final_fantasy_vii_remake_standard_b3a8d41b81c34728a2f7d99ab70d1e57_master.png');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Users`
+--
+
+DROP TABLE IF EXISTS `Users`;
+CREATE TABLE IF NOT EXISTS `Users` (
+  `UserID` int(11) NOT NULL AUTO_INCREMENT,
+  `UserName` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `UserEmail` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `UserPassword` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `UserGender` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `UserBirth` datetime DEFAULT NULL,
+  `UserImage` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `UserPhone` text COLLATE utf8_unicode_ci,
+  `UserRole` int(11) NOT NULL,
+  PRIMARY KEY (`UserID`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `Users`
+--
+
+INSERT INTO `Users` (`UserID`, `UserName`, `UserEmail`, `UserPassword`, `UserGender`, `UserBirth`, `UserImage`, `UserPhone`, `UserRole`) VALUES
+(1, 'Chong duc anh', 'chongducanh@gmail.com', 'abcdef', NULL, NULL, NULL, NULL, 2),
+(2, 'admin', 'admin@gmail.com', 'pw', NULL, NULL, NULL, NULL, 1);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

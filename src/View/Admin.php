@@ -130,7 +130,11 @@ if (!isset($_SESSION['id']) || $_SESSION['userrole'] != 1) {
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                   <h6 class="m-0 font-weight-bold text-primary">Game list:</h6>
-                  <button class="btn btn-success text-right" data-toggle="modal" data-target="#insertmodel">Insert</button>
+                  <div class="text-right">
+                    <button class="btn btn-success " data-toggle="modal" data-target="#insertcsv">Import CSV</button>
+                    <button class="btn btn-success " data-toggle="modal" data-target="#insertmodel">Insert</button>
+                  </div>
+
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
@@ -268,6 +272,30 @@ if (!isset($_SESSION['id']) || $_SESSION['userrole'] != 1) {
           
           
         </div> -->
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="insertcsv" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Insert game by CSV file </h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="/index.php?url=Admin/ImportCSV" method="POST" enctype="multipart/form-data">
+
+            <div>
+              CSV file: <input type="file" name="file" id="file">
+            </div>
+            <div class="float-right">
+              <button type="submit" name="insertsubmit" class="btn btn-success">Submit</button>
+              <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>
