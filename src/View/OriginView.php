@@ -41,10 +41,10 @@
                                 Profile
                             </a>
 
-                            <a class="dropdown-item" href="#">
+                            <!-- <a class="dropdown-item" href="#">
                                 <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Cart
-                            </a>
+                            </a> -->
                             <?php
                             if ($_SESSION['userrole'] == 1) {
                             ?>
@@ -77,8 +77,16 @@
                     }
                     ?>
                     <li class="nav-item">
-                            <a class="nav-link active text-primary" href="/index.php?url=Cart/Info/"> <i class="fa fa-cart-arrow-down" aria-hidden="true"></i> Cart</a>
-                        </li>
+
+                        <a class="nav-link active text-primary" href="/index.php?url=Cart/Info/"> <i class="fa fa-cart-arrow-down" aria-hidden="true"></i> Cart <?php
+                                                                                                                                                                if (isset($_SESSION['cart'])) {
+                                                                                                                                                                    $count = count($_SESSION['cart']);
+                                                                                                                                                                    echo "(" . $count . ")";
+                                                                                                                                                                }
+                                                                                                                                                                ?></a>
+
+
+                    </li>
                 </div>
 
             </div>

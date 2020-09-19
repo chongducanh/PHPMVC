@@ -20,7 +20,7 @@ class Cart extends Controller
                 $_SESSION['cart'][$id]=$cart_item;
             }
         }
-        header("Location: /index.php?url=Cart/Info/");
+        header("Location: /index.php?url=Game");
     }
     public function ClearCart()
     {
