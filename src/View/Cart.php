@@ -108,7 +108,8 @@
                                 <!-- Card Header - Dropdown -->
                                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <h6 class="m-0 font-weight-bold text-primary">Cart list:</h6>
-
+                                    <a href="/index.php?url=Cart/ClearCart"><button class="btn btn-success text-right" >Clear</button></a>
+                                    
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
@@ -124,15 +125,18 @@
                                             <tbody>
 
                                                 <?php
+                                                if(isset($_SESSION['cart'])){
+
+                                                
                                                 foreach ($_SESSION['cart'] as $row) {
                                                 ?>
                                                     <tr>
-                                                        <th scope="row"><?php echo $row[1] ?></th>
+                                                        <th scope="row"><?php echo $row[0] ?></th>
+                                                        <td scope="row"><?php echo $row[1] ?></td>
                                                         <td scope="row"><?php echo $row[2] ?></td>
-                                                        <td scope="row"><?php echo $row[3] ?></td>
                                                     </tr>
                                                 <?php
-                                                }
+                                                }}
                                                 ?>
                                             </tbody>
                                         </table>

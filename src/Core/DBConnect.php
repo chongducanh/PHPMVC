@@ -2,7 +2,7 @@
 
 class DbConnect {
 
-    protected $serverName = "172.16.14.174";
+    protected $serverName = "192.168.1.12";
     protected $userName = "root";
     protected $passWord = "password";
     protected $dbName = "game";
